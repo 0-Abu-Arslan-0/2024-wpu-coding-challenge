@@ -2,14 +2,22 @@
 // 15/366
 // https://www.codewars.com/kata/576b93db1129fcf2200001e6
 
+// function sumArray(array) {
+//   if (array === null || array.length <= 2) return 0;
+//   const sort = array.sort((a, b) => a - b);
+//   let result = 0;
+//   for (let i = 1; i < sort.length - 1; i++) {
+//     result += sort[i];
+//   }
+//   return result;
+// }
+
 function sumArray(array) {
   if (array === null || array.length <= 2) return 0;
-  const sort = array.sort((a, b) => a - b);
-  let result = 0;
-  for (let i = 1; i < sort.length - 1; i++) {
-    result += sort[i];
-  }
-  return result;
+  return array
+    .sort((a, b) => a - b)
+    .slice(1, -1)
+    .reduce((a, b) => a + b, 0);
 }
 
 console.log(sumArray(null));
